@@ -23,7 +23,7 @@ pipeline{
                         sh "docker rm ${containerName}"
                         echo "Container ${containerName} stopped and removed."
                     }
-                    
+
                     // 检查镜像是否存在
                     def imageName = 'web'
                     def imageExists = sh (
@@ -40,7 +40,7 @@ pipeline{
 
                 sh """
                 docker build -t web .     
-                docker run -it --name web -p 80:80 web  
+                docker run -itd --name web -p 80:80 web  
                 """
             }
         }
