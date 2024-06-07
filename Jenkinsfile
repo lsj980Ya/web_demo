@@ -9,6 +9,7 @@ pipeline{
         stage("Depoly"){
             steps{
                 sh """
+                docker --version
                 docker stop web
                 docker rm web
                 docker rmi web
