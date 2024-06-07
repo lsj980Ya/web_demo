@@ -23,19 +23,19 @@ pipeline{
                         sh "docker rm ${containerName}"
                         echo "Container ${containerName} stopped and removed."
                     }
-                }
+                    
+                    // 检查镜像是否存在
+                    def imageName = 'web'
+                    def imageExists = sh (
+                        script: "docker images -q ${imageName}",
+                        returnStdout: true
+                    ).trim()
 
-                // 检查镜像是否存在
-                def imageName = 'web'
-                def imageExists = sh (
-                    script: "docker images -q ${imageName}",
-                    returnStdout: true
-                ).trim()
-
-                if (imageExists) {
-                    // 移除镜像
-                    sh "docker rmi ${imageName}"
-                    echo "Image ${imageName} removed."
+                    if (imageExists) {
+                        // 移除镜像
+                        sh "docker rmi ${imageName}"
+                        echo "Image ${imageName} removed."
+                    }
                 }
 
                 sh """
