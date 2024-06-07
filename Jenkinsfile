@@ -8,11 +8,13 @@ pipeline{
         }
         stage("Depoly"){
             steps{
+                sh """
                 docker stop web
                 docker rm web
                 docker rmi web
                 docker build -t web .     
                 docker run -it --name web -p 80:80 web  
+                """
             }
         }
     }
