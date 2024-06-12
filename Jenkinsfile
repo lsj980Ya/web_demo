@@ -3,7 +3,7 @@ pipeline{
     parameters {
         choice name: "请选择", defaultValue:"dev", choices:['dev','stage','prod']
         string name: '版本号'
-        choice choices: ['不更新', '测试更新', '生产更新'], name: '更新选择'
+        choice choices: ['不更新11', '测试更新11', '生产更新11'], name: '更新选择11'
     }
     stages{
         stage("CheckOut"){
