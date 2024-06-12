@@ -1,5 +1,9 @@
 pipeline{
     agent any
+    parameters {
+        string name: '版本号'
+        choice choices: ['不更新', '测试更新', '生产更新'], name: '更新选择'
+    }
     stages{
         stage("CheckOut"){
             steps{
