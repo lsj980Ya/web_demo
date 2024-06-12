@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters {
-        choice name: "请选择", defaultValue:"dev", choices:['dev','stage','prod']
+        choice name: "请选择", choices:['dev','stage','prod'], description: "descsdfadsfasd"
         string name: '版本号'
         choice choices: ['不更新11', '测试更新11', '生产更新11'], name: '更新选择11'
     }
